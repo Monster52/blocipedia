@@ -16,3 +16,36 @@
 
  @import "bootstrap-sprockets";
  @import "bootstrap";
+
+ .navbar-default {
+   background-color: #66b3ff;
+ }
+
+ .navbar-brand {
+   text-decoration: underline;
+   font-size: 1.5em;
+ }
+
+ .jumbotron {
+   margin-top: 60px;
+   background-color: #ff944d;
+   box-shadow: 10px 10px 5px #888888;
+ }
+
+ .down-20 {
+   margin-top: 20px;
+ }
+
+ .btn {
+   box-shadow: 10px 10px 5px #888888;
+ }
+
+ .btn-primary {
+   background-color: #66b3ff;
+   border-color: #66b3ff;
+ }
+
+ .btn-warning {
+   background-color: #ff944d;
+   border-color: #ff944d;
+ }
