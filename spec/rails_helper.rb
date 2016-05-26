@@ -6,6 +6,8 @@ abort("The Rails environment is running in production mode!") if Rails.env.produ
 require 'spec_helper'
 require 'rspec/rails'
 # Add additional requires below this line. Rails is not loaded until this point!
+require 'factory_girl_rails'
+require 'devise'
 
 # Requires supporting ruby files with custom matchers and macros, etc, in
 # spec/support/ and its subdirectories. Files matching `spec/**/*_spec.rb` are
@@ -27,8 +29,17 @@ require 'rspec/rails'
 ActiveRecord::Migration.maintain_test_schema!
 
 RSpec.configure do |config|
+  # Include FactoryGirl so we can use 'create' instead of 'FactoryGirl.create'
+  config.include FactoryGirl::Syntax::Methods
+
+  # Include Devise Helpers
+  config.include Devise::TestHelpers, type: :controller
+  config.include Devise::TestHelpers, type: :view
+  config.include Warden::Test::Helpers
+  Warden.test_mode!
+
   # Remove this line if you're not using ActiveRecord or ActiveRecord fixtures
-  config.fixture_path = "#{::Rails.root}/spec/fixtures"
+  # config.fixture_path = "#{::Rails.root}/spec/fixtures"
 
   # If you're not using ActiveRecord, or you'd prefer not to run each of your
   # examples within a transaction, remove the following line or assign false

@@ -1,0 +1,21 @@
+<h1>Public Wikis</h1>
+<div class="row">
+
+  <div class="col-md-8">
+    <% @wikis.each do |wiki| %>
+    <div class="media">
+      <div class="media-body">
+        <h3 class="media-heading">
+          <%= link_to wiki.title, wiki %>
+        </h3>
+      </div>
+    </div>
+    <% end %>
+  </div>
+
+  <div class="col-md-4">
+    <p>Create Public Wiki</p>
+    <%= link_to "New Wiki", new_wiki_path, class: 'btn btn-primary' %>
+  </div>
+
+</div>
