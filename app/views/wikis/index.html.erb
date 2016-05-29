@@ -8,14 +8,15 @@
         <h3 class="media-heading">
           <%= link_to wiki.title, wiki %>
         </h3>
+        <small>Created by <%= wiki.user.username %> <%= time_ago_in_words(wiki.created_at) %> ago</small>
       </div>
     </div>
     <% end %>
   </div>
 
   <div class="col-md-4">
-    <p>Create Public Wiki</p>
-    <%= link_to "New Wiki", new_wiki_path, class: 'btn btn-primary' %>
+      <p>Create Public Wiki</p>
+      <%= link_to "New Wiki", new_wiki_path, class: 'btn btn-primary' %>
   </div>
 
 </div>

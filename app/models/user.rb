@@ -4,7 +4,14 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable, :confirmable,
          :recoverable, :rememberable, :trackable, :validatable
 
+  enum role: [:standard, :premium, :admin]
+
   has_many :wikis, dependent: :destroy
+  before_save { self.role ||= :standard }
+
+  def admin?
+    self.role == "admin"
+  end
 
   def login=(login)
     @login = login
@@ -23,5 +30,4 @@ class User < ActiveRecord::Base
       where(conditions.to_hash).first
     end
   end
-
 end

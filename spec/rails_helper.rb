@@ -31,12 +31,7 @@ ActiveRecord::Migration.maintain_test_schema!
 RSpec.configure do |config|
   # Include FactoryGirl so we can use 'create' instead of 'FactoryGirl.create'
   config.include FactoryGirl::Syntax::Methods
-
-  # Include Devise Helpers
-  config.include Devise::TestHelpers, type: :controller
-  config.include Devise::TestHelpers, type: :view
-  config.include Warden::Test::Helpers
-  Warden.test_mode!
+  config.include Devise::TestHelpers, :type => :controller
 
   # Remove this line if you're not using ActiveRecord or ActiveRecord fixtures
   # config.fixture_path = "#{::Rails.root}/spec/fixtures"

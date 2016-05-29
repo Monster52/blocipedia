@@ -6,6 +6,7 @@ RSpec.describe User, type: :model do
     it { should have_db_column(:username).of_type(:string) }
     it { should have_db_column(:email).of_type(:string) }
     it { should have_db_column(:encrypted_password).of_type(:string) }
+    it { should have_db_column(:role).of_type(:integer) }
   end
 
   describe "associations" do

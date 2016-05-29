@@ -1,5 +1,7 @@
-<h1><%= @wiki.title %></h1>
-<div class="row">
+<h1><%= @wiki.title %></h1><br />
+<small>Created by <%= @wiki.user.username %> <%= time_ago_in_words(@wiki.created_at) %> ago</small>
+
+<div class="row down-20">
 
   <div class="col-md-8">
     <div class="media">
