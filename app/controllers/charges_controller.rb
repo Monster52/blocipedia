@@ -39,6 +39,8 @@ class ChargesController < ApplicationController
     subscription.delete(at_period_end: true)
 
     current_user.update_attribute(:role, 'standard')
+    current_user.wikis.where(private: true).update_all(private: false)
+
 
     flash[:notice] = "You are now a Standard Member."
     redirect_to wikis_path

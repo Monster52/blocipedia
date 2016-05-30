@@ -6,7 +6,11 @@
     <div class="media">
       <div class="media-body">
         <h3 class="media-heading">
-          <%= link_to wiki.title, wiki %>
+          <% if wiki.private? %>
+            <%= link_to wiki.title, wiki, class: "private" %> <small>Private Wiki</small>
+          <% else %>
+            <%= link_to wiki.title, wiki %>
+          <% end %>
         </h3>
         <small>Created by <%= wiki.user.username %> <%= time_ago_in_words(wiki.created_at) %> ago</small>
       </div>

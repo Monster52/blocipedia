@@ -11,11 +11,11 @@ class ApplicationPolicy
   end
 
   def show?
-    scope.where(:id => record.id).exists?
+    user.present? || user.admin?
   end
 
   def create?
-    false
+    user.present?
   end
 
   def new?

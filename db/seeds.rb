@@ -40,7 +40,9 @@ end
   Wiki.create!(
     title: Faker::Lorem.sentence,
     body:  Faker::Lorem.paragraph(3),
-    user:  users.sample
+    user:  users.sample,
+    private: rand(1..5) != 1
   )
 end
 puts "#{Wiki.count} wikis created."
+puts "#{Wiki.where(private: true).count} private topics created."

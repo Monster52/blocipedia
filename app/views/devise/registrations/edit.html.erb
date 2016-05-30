@@ -44,7 +44,7 @@
     <%= link_to "Premium", new_charge_path, class: 'btn btn-warning' %>
   <% else %>
     <h3>Go back to Standard membership</h3>
-    <%= link_to "Standard", cancel_path, class: 'btn btn-warning', data: { confirm: "Are you sure?" }, method: :put %>
+    <%= link_to "Standard", cancel_path, class: 'btn btn-warning', data: { confirm: "Are you sure? Your private wikis will become public." }, method: :put %>
   <% end %>
 
   <h3>Cancel my account</h3>

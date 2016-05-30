@@ -13,6 +13,14 @@ class User < ActiveRecord::Base
     self.role == "admin"
   end
 
+  def premium?
+    self.role == "premium"
+  end
+
+  def standard?
+    self.role == "standard"
+  end
+
   def login=(login)
     @login = login
   end
