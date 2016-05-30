@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   devise_for :users
   resources :wikis
   resources :charges, only: [:new, :create]
+  put 'cancel', to: 'charges#cancel'
 
   root 'welcome#index'
   get 'about', to: 'welcome#about'
