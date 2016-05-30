@@ -8,13 +8,15 @@
   </div>
 
   <div class="col-md-6 text-center">
-    <a class="btn btn-warning btn-lg down-20" herf="#" role="button">Public Wikis</a>
-    <h4 class="down-20">Free Plan</h4>
+    <h3 class="down-20">Free Plan</h3>
+    <h4>Create and edit public Wikis.</h4>
+    <%= link_to "Standard User", new_user_registration_path, class: 'btn btn-warning btn-lg down-20' %>
   </div>
 
   <div class="col-md-6 text-center">
-    <a class="btn btn-warning btn-lg down-20" herf="#" role="button">Private Wikis</a>
-    <h4 class="down-20">Premium Plan</h4>
+    <h3 class="down-20">Premium Plan</h3>
+    <h4>Create Private Wikis and invite <br />other users to work on them with you.</h4>
+    <%= link_to "Premium User", new_charge_path, class: 'btn btn-warning btn-lg down-20' %>
   </div>
 
 </div>
