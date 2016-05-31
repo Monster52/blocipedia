@@ -14,6 +14,8 @@ gem 'pry'
 gem 'devise'
 gem 'pundit'
 gem 'stripe'
+gem 'redcarpet'
+gem 'coderay'
 gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
 

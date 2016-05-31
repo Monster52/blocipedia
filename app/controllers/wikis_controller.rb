@@ -25,6 +25,7 @@ class WikisController < ApplicationController
     @wiki = current_user.wikis.build(wiki_params)
     authorize @wiki
 
+
     if @wiki.save
       flash[:notice] = "Your wiki was published."
       redirect_to wikis_path
