@@ -13,7 +13,7 @@ gem 'figaro'
 gem 'pry'
 gem 'devise'
 gem 'pundit'
-gem 'stripe'    
+gem 'stripe'
 gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
 
@@ -24,6 +24,10 @@ group :development, :test do
   gem 'shoulda'
   gem 'faker'
   gem 'factory_girl_rails'
+end
+
+group :test do
+  gem 'pundit-matchers', '~> 1.0.2'
 end
 
 group :development do

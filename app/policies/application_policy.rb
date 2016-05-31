@@ -11,7 +11,7 @@ class ApplicationPolicy
   end
 
   def show?
-    user.present? || user.admin?
+    user.present?
   end
 
   def create?

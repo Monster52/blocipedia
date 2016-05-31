@@ -6,12 +6,8 @@ class WikiPolicy < ApplicationPolicy
     @wiki = wiki
   end
 
-  def index
-    user.admin? || user.wikis.count
-  end
-
-  def show
-    user.present && (user.admin? || wiki.user_id == user.id)
+  def show?
+    true
   end
 
   def update?
@@ -19,7 +15,7 @@ class WikiPolicy < ApplicationPolicy
   end
 
   def destroy?
-    user.admin?
+    user.admin? if user
   end
 
   def new?
@@ -36,9 +32,9 @@ class WikiPolicy < ApplicationPolicy
 
      def resolve
        wikis = []
-       if user.role == 'admin'
+       if user.admin?
          wikis = scope.all
-       elsif user.role == 'premium'
+       elsif user.premium?
          all_wikis = scope.all
          all_wikis.each do |wiki|
           if !wiki.private? || wiki.user == user
