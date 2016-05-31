@@ -39,7 +39,7 @@ end
 20.times do
   Wiki.create!(
     title: Faker::Lorem.sentence,
-    body:  Faker::Lorem.paragraph(3),
+    body:  Faker::Lorem.paragraphs,
     user:  users.sample,
     private: rand(1..5) != 1
   )
