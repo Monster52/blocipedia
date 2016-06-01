@@ -31,26 +31,34 @@ class WikiPolicy < ApplicationPolicy
      end
 
      def resolve
-       wikis = []
-       if user.try(:admin?)
+       if !user.present?
+         wikis = public_records
+       elsif user.standard?
+         wikis = (public_records + shared_records).uniq
+       elsif user.admin?
          wikis = scope.all
-       elsif user.try(:premium?)
-         all_wikis = scope.all
-         all_wikis.each do |wiki|
-          if !wiki.private? || wiki.user == user || wiki.collaborations.include?(user)
-            wikis << wiki
-          end
-        end
-       else
-         all_wikis = scope.all
-         wikis = []
-         all_wikis.each do |wiki|
-           if !wiki.private? || wiki.collaborations.include?(user)
-             wikis << wiki
-           end
-         end
+       elsif user.premium?
+         wikis = (public_records + private_and_owned_records + shared_records).uniq
        end
-       wikis
+       return sorted_by_last_updated(wikis)
      end
+
+     private
+     def private_and_owned_records
+       scope.where(:private => true).where(:user_id => user.id)
+     end
+
+     def public_records
+       scope.where(:private => false)
+     end
+
+     def shared_records
+       scope.joins(:collaborations).where("collaborations.user_id = #{user.id}")
+     end
+
+     def sorted_by_last_updated(records)
+       records.sort_by{|e| e.updated_at }.reverse!
+     end
+
    end
  end
