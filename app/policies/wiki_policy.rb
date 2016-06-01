@@ -7,11 +7,17 @@ class WikiPolicy < ApplicationPolicy
   end
 
   def show?
-    user.present?
+    Wiki.where(:id => wiki.id).exists? && (wiki.private? || update?)
   end
 
   def update?
-    user.present?
+    user.present? && (
+      wiki.private? || (
+        user.admin? ||
+        wiki.user == user ||
+        wiki.users.include?(user)
+      )
+    )
   end
 
   def destroy?
