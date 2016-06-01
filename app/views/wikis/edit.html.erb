@@ -3,9 +3,7 @@
     <h2>Edit Wiki</h2>
     <%= render partial: 'wikis/form' %>
   </div>
-  <div class="col-md-4 down-40">
-    <% if @wiki.private? %>
-    <%= render partial: 'collaborations/collaborators', locals: { wiki: @wiki, collaboration: @collaboration } %>
-  <% end %>
+  <div class="col-md-6 pull-right down-40">
+    <%= render partial: 'wikis/collaborators' %>
   </div>
 </div>

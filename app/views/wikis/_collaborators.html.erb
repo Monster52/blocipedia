@@ -1,0 +1,10 @@
+<div class="media">
+  <div class="media-heading">
+    <h4>Collaborators</h4>
+  </div>
+  <div class="media-body">
+    <% @wiki.collaborations.each do |collab| %>
+      <h4><span class="glyphicon glyphicon-user" aria-hidden="true"> <%= collab.user.username %></h4>
+    <% end %>
+  </div>
+</div>
