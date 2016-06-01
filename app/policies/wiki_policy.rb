@@ -7,7 +7,7 @@ class WikiPolicy < ApplicationPolicy
   end
 
   def show?
-    user.admin? if user
+    user.present?
   end
 
   def update?
