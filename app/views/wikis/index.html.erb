@@ -1,7 +1,6 @@
-<h1>Public Wikis</h1>
 <div class="row">
-
   <div class="col-md-8">
+    <h1>Wiki List</h1>
     <% @wikis.each do |wiki| %>
     <div class="media">
       <div class="media-body">
@@ -19,8 +18,10 @@
   </div>
 
   <div class="col-md-4">
+    <% if current_user %>
       <p>Create Public Wiki</p>
       <%= link_to "New Wiki", new_wiki_path, class: 'btn btn-primary' %>
+    <% end %>
   </div>
 
 </div>

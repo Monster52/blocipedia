@@ -7,7 +7,7 @@ class WikiPolicy < ApplicationPolicy
   end
 
   def show?
-    true
+    user.admin? if user
   end
 
   def update?
@@ -32,9 +32,9 @@ class WikiPolicy < ApplicationPolicy
 
      def resolve
        wikis = []
-       if user.admin?
+       if user.try(:admin?)
          wikis = scope.all
-       elsif user.premium?
+       elsif user.try(:premium?)
          all_wikis = scope.all
          all_wikis.each do |wiki|
           if !wiki.private? || wiki.user == user

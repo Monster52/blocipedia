@@ -1,8 +1,7 @@
-<h2>Edit Account</h2>
-<h4>Membership Status: <%= current_user.role.capitalize %></h4>
-
 <div class="row down-20">
   <div class="col-md-4">
+    <h2>Edit Account</h2>
+    <h4>Membership Status: <%= current_user.role.capitalize %></h4>
 
   <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
     <%= devise_error_messages! %>

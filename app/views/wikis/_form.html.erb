@@ -1,29 +1,21 @@
-<h2>Create Wiki</h2>
-
-<div class="row down-20">
-  <div class="col-md-4">
-
-    <%= form_for @wiki do |f| %>
-      <div class="form-group">
-        <%= f.label :title %><br />
-        <%= f.text_field :title, class: 'form-control', placeholder: "Title", autofocus: true %>
-      </div>
-
-      <div class="form-group">
-        <%= f.label :body %><br />
-        <%= f.text_area :body, rows: 8, class: 'form-control' %>
-      </div>
-
-      <% if current_user.premium? || current_user.admin? -%>
-        <div class="form-group">
-          <%= f.check_box :private %>
-          <%= f.label :private %>
-        </div>
-      <% end -%>
-
-
-      <%= f.submit "Submit", class: 'btn btn-primary' %>
-    <% end %>
-
+<%= form_for @wiki do |f| %>
+  <div class="form-group">
+    <%= f.label :title %><br />
+    <%= f.text_field :title, class: 'form-control', placeholder: "Title", autofocus: true %>
   </div>
-</div>
+
+  <div class="form-group">
+    <%= f.label :body %><br />
+    <%= f.text_area :body, rows: 8, class: 'form-control' %>
+  </div>
+
+  <% if current_user.premium? || current_user.admin? -%>
+    <div class="form-group">
+      <%= f.check_box :private %>
+      <%= f.label :private %>
+    </div>
+  <% end -%>
+
+
+  <%= f.submit "Submit", class: 'btn btn-primary' %>
+<% end %>
