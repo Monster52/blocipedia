@@ -78,5 +78,5 @@ Rails.application.configure do
   config.active_record.dump_schema_after_migration = false
 
   # Set up Devise for production
-  config.action_mailer.default_url_options = { :host => 'sheltered-dawn-69711.heroku.com'}
+  config.action_mailer.default_url_options = { :host => 'rw-blocipedia.heroku.com'}
 end
