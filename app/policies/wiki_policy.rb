@@ -30,39 +30,33 @@ class WikiPolicy < ApplicationPolicy
 
 
   class Scope
-    attr_reader :user, :scope
+     attr_reader :user, :scope
 
-    def initialize(user, scope)
-      @user = user
-      @scope = scope
-    end
+     def initialize(user, scope)
+       @user = user
+       @scope = scope
+     end
 
-    def resolve
-      wikis = []
-      if user.role == 'admin'
-        wikis = scope.all # if the user is an admin, show them all the wikis
-      elsif user.role == 'premium'
-        all_wikis = scope.all
-        all_wikis.each do |wiki|
-          if public_records || wiki.owner == user || shared_records
-            wikis << wiki # if the user is premium, only show them public wikis, or that private wikis they created, or private wikis they are a collaborator on
-          end
-        end
-      else # this is the lowly standard user
-        all_wikis = scope.all
-        wikis = []
-        all_wikis.each do |wiki|
-          if wiki.user_id == user.id || !wiki.private? || wiki.collaborations.include?(user)
-            wikis << wiki # only show standard users public wikis and private wikis they are a collaborator on
-          end
-        end
-      end
-      wikis # return the wikis array we've built up
-    end
+     def resolve
+       if !user.present?
+         wikis = public_records
+       elsif user.standard?
+         wikis = (public_records + owned_records + shared_records).uniq
+       elsif user.admin?
+         wikis = scope.all
+       elsif user.premium?
+         wikis = (public_records + private_and_owned_records + shared_records).uniq
+       end
+       return sorted_by_last_updated(wikis)
+     end
 
-    private
+     private
      def private_and_owned_records
        scope.where(:private => true).where(:user_id => user.id)
+     end
+
+     def owned_records
+       scope.where(:user_id => user.id)
      end
 
      def public_records
@@ -77,5 +71,5 @@ class WikiPolicy < ApplicationPolicy
        records.sort_by{|e| e.updated_at }.reverse!
      end
 
-    end
-  end
+   end
+ end
