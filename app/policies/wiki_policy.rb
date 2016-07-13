@@ -11,13 +11,7 @@ class WikiPolicy < ApplicationPolicy
   end
 
   def update?
-    user.present? && (
-      wiki.private? || (
-        user.admin? ||
-        wiki.user == user ||
-        wiki.users.include?(user)
-      )
-    )
+    user.present? || ( wiki.private? || ( wiki.user == user || wiki.users.include?(user)))
   end
 
   def destroy?

@@ -8,8 +8,8 @@ describe WikiPolicy do
 
   context "guest user" do
     let(:user) { nil }
-    
-    it { should permit_action(:show) }
+
+    it { should forbid_action(:show) }
     it { should forbid_edit_and_update_actions }
     it { should forbid_new_and_create_actions }
     it { should forbid_action(:destroy) }

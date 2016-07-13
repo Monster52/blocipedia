@@ -11,6 +11,8 @@ class User < ActiveRecord::Base
   has_many :shared_wikis, through: :collaborations, source: :wiki
   before_save { self.role ||= :standard }
 
+
+
   def admin?
     self.role == "admin"
   end
