@@ -11,5 +11,13 @@ RSpec.describe User, type: :model do
 
   describe "associations" do
     it { should have_many(:wikis).dependent(:destroy) }
+    it { should have_many(:collaborations).dependent(:destroy) }
+    it { should have_many(:shared_wikis) }
   end
+
+  describe "validations" do
+    it { should validate_presence_of(:email) }
+    it { should validate_length_of(:email).is_at_least(3) }
+  end
+
 end
