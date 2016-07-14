@@ -4,12 +4,19 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable, :confirmable,
          :recoverable, :rememberable, :trackable, :validatable
 
+  before_save { self.email = email.downcase if email.present? }
+
   enum role: [:standard, :premium, :admin]
 
   has_many :wikis, dependent: :destroy
   has_many :collaborations
   has_many :shared_wikis, through: :collaborations, source: :wiki
   before_save { self.role ||= :standard }
+
+  validates :email,
+            presence: true,
+            length: { minimum: 3, maximum: 254 },
+            uniqueness: { case_sensitive: false }
 
 
 

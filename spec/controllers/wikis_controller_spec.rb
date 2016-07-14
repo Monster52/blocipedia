@@ -53,7 +53,7 @@ RSpec.describe WikisController, type: :controller do
         new_body = "This is a new body for updating"
 
         put :update, id: my_wiki.id, wiki: { title: new_title, body: new_body }, user_id: @my_user.id
-        expect(response).to redirect_to(:wiki) 
+        expect(response).to redirect_to("http://test.host/wikis/#{my_wiki.title.downcase}") 
       end
     end
   end
