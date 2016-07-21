@@ -17,13 +17,6 @@ class ChargesController < ApplicationController
       card: params[:stripeToken]
     )
 
-    charge = Stripe::Charge.create(
-      customer: customer.id,
-      amount: @amount,
-      description: "Blocipedia Premium Membership - #{current_user.email}",
-      currency: 'usd'
-    )
-
     current_user.update_attribute(:role, 'premium')
 
     flash[:notice] = "Thank you for you purchase #{current_user.username}, you are now a Premium member!"
