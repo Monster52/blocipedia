@@ -63,4 +63,20 @@ RSpec.configure do |config|
   config.filter_rails_from_backtrace!
   # arbitrary gems may also be filtered via:
   # config.filter_gems_from_backtrace("gem name")
+
+  SimpleCov.start do
+    add_filter "/bin/" # Ignores any file containing "/vendor/" in its path.
+    add_filter "/config/"
+    add_filter "/coverage/"
+    add_filter "/db/"
+    add_filter "/lib/"
+    add_filter "/public/"
+    add_filter "/spec/"
+    add_filter "/vendor/"
+    add_filter "Gemfile"
+    add_filter "Gemfile.lock"
+    add_filter "README.md"
+    add_filter "Rakefile"
+    add_filter "config.ru"
+  end
 end
