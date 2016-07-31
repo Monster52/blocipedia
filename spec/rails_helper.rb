@@ -32,7 +32,7 @@ ActiveRecord::Migration.maintain_test_schema!
 RSpec.configure do |config|
   # Include FactoryGirl so we can use 'create' instead of 'FactoryGirl.create'
   config.include FactoryGirl::Syntax::Methods
-  config.include Devise::TestHelpers, :type => :controller
+  config.include Devise::Test::ControllerHelpers, :type => :controller
 
 
 
@@ -63,20 +63,19 @@ RSpec.configure do |config|
   config.filter_rails_from_backtrace!
   # arbitrary gems may also be filtered via:
   # config.filter_gems_from_backtrace("gem name")
-
-  SimpleCov.start do
-    add_filter "/bin/" # Ignores any file containing "/vendor/" in its path.
-    add_filter "/config/"
-    add_filter "/coverage/"
-    add_filter "/db/"
-    add_filter "/lib/"
-    add_filter "/public/"
-    add_filter "/spec/"
-    add_filter "/vendor/"
-    add_filter "Gemfile"
-    add_filter "Gemfile.lock"
-    add_filter "README.md"
-    add_filter "Rakefile"
-    add_filter "config.ru"
-  end
+end
+SimpleCov.start do
+  add_filter "/bin/"
+  add_filter "/config/"
+  add_filter "/coverage/"
+  add_filter "/db/"
+  add_filter "/lib/"
+  add_filter "/public/"
+  add_filter "/spec/"
+  add_filter "/vendor/"
+  add_filter "Gemfile"
+  add_filter "Gemfile.lock"
+  add_filter "README.md"
+  add_filter "Rakefile"
+  add_filter "config.ru"
 end

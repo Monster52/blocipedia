@@ -11,5 +11,6 @@ FactoryGirl.define do
     email
     password pw
     password_confirmation pw
+    role "standard"
   end
 end
