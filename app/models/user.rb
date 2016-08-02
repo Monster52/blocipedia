@@ -18,6 +18,14 @@ class User < ActiveRecord::Base
             presence: true,
             length: { minimum: 3 }
 
+  def login=(login)
+    @login = login
+  end
+
+  def login
+    @login || self.username || self.email
+  end
+
   # Override Devise Lookup on login
   def self.find_for_database_authentication(warden_conditions)
     conditions = warden_conditions.dup

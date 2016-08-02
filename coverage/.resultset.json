@@ -1,62 +1,7 @@
 {
   "RSpec": {
     "coverage": {
-      "/Users/monster/Development/blocipedia/app/models/user.rb": [
-        1,
-        null,
-        null,
-        1,
-        null,
-        null,
-        38,
-        38,
-        null,
-        null,
-        1,
-        null,
-        1,
-        1,
-        1,
-        null,
-        1,
-        null,
-        null,
-        null,
-        null,
-        1,
-        0,
-        0,
-        0,
-        null,
-        0,
-        null,
-        null,
-        null
-      ],
-      "/Users/monster/Development/blocipedia/app/helpers/application_helper.rb": [
-        1,
-        1,
-        1,
-        1,
-        0,
-        null,
-        null,
-        null,
-        1,
-        0,
-        null,
-        0,
-        null,
-        null,
-        null,
-        null,
-        null,
-        0,
-        0,
-        null,
-        null
-      ],
-      "/Users/monster/Development/blocipedia/app/controllers/application_controller.rb": [
+      "/home/ubuntu/workspace/app/controllers/application_controller.rb": [
         1,
         null,
         null,
@@ -70,9 +15,9 @@
         1,
         null,
         1,
-        0,
-        0,
-        0,
+        12,
+        8,
+        8,
         null,
         null,
         1,
@@ -85,7 +30,7 @@
         null,
         null
       ],
-      "/Users/monster/Development/blocipedia/app/controllers/charges_controller.rb": [
+      "/home/ubuntu/workspace/app/controllers/charges_controller.rb": [
         1,
         1,
         1,
@@ -128,7 +73,7 @@
         null,
         null
       ],
-      "/Users/monster/Development/blocipedia/app/controllers/welcome_controller.rb": [
+      "/home/ubuntu/workspace/app/controllers/welcome_controller.rb": [
         1,
         1,
         null,
@@ -137,7 +82,7 @@
         null,
         null
       ],
-      "/Users/monster/Development/blocipedia/app/controllers/wikis_controller.rb": [
+      "/home/ubuntu/workspace/app/controllers/wikis_controller.rb": [
         1,
         null,
         1,
@@ -215,13 +160,13 @@
         null,
         null
       ],
-      "/Users/monster/Development/blocipedia/app/models/collaboration.rb": [
+      "/home/ubuntu/workspace/app/models/collaboration.rb": [
         1,
         1,
         1,
         null
       ],
-      "/Users/monster/Development/blocipedia/app/models/wiki.rb": [
+      "/home/ubuntu/workspace/app/models/wiki.rb": [
         1,
         1,
         1,
@@ -243,7 +188,7 @@
         null,
         null
       ],
-      "/Users/monster/Development/blocipedia/app/policies/wiki_policy.rb": [
+      "/home/ubuntu/workspace/app/policies/wiki_policy.rb": [
         1,
         1,
         null,
@@ -314,7 +259,7 @@
         null,
         null
       ],
-      "/Users/monster/Development/blocipedia/app/policies/application_policy.rb": [
+      "/home/ubuntu/workspace/app/policies/application_policy.rb": [
         1,
         1,
         null,
@@ -370,6 +315,6 @@
         null
       ]
     },
-    "timestamp": 1469996597
+    "timestamp": 1470108015
   }
 }
