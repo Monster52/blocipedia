@@ -20,6 +20,7 @@ gem 'friendly_id'
 gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'stripe-ruby-mock', :require => 'stripe_mock'
+gem 'capybara', '2.4.0'
 gem 'codeclimate-test-reporter', group: :test, require: nil
 
 group :development, :test do
